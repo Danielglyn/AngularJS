@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang='en' ng-app>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Shopping Cart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+</head>
+<body ng-controller="ShoppingController">
+    <h1>Welcome to our little Shop</h1>
+    <table>
+        <tr ng-repeat="item in items">
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price | currency:'&euro;'}}</td>
+        </tr>
+    </table>
+<script>
+    function ShoppingController($scope, $http) {
+//        $http.get('products.json').success(function (data) {
+//            $scope.items = data;
+//        });
+        $http({
+            method:'GET',
+            url: 'nosuch.json' // could be dynamic e.g. products.json
+        }).then(function(response){
+            // success handler
+            console.log(response);
+            $scope.items = response.data;
+        }, function(response){
+            // error handler
+            console.log(response);
+            $scope.items = response.data;
+        });
+    }
+</script>
+</body>
+
+</html>

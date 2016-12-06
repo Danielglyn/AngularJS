@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- example code from AngularJS Novice To Ninja book p47-48 -->
+<html>
+<head>
+    <script>
+    function Car(color,steering){
+        this.color=color;
+        this.steering=steering;
+    }
+    Car.prototype.year=2012; // Car is a functional object, so it has the `prototype` property
+    var car=new Car('red','left');
+    console.log(car.color); // prints color from car
+    console.log(car.year); //prints year from Car.prototype
+    console.log(car.hasOwnProperty('year')); //returns false
+
+    var car=new Car('red','left'); // sets car.__proto__=Car.prototype
+
+    car.year=2000 //sets property 'year' on car
+    console.log(car.year); // returns 'year' property from car and NOT from Car.prototype
+    console.log(car.hasOwnProperty('year')); //returns true as car has 'year' propery
+
+    Car.prototype.data={}; //set it to empty object
+
+    car.data.engine='rear'; //This does not create a new property called 'data' on car object
+    console.log(car.data.engine); //returns 'rear' and it comes from Car.prototype
+    console.log(car.hasOwnProperty('data')); // false, as car doesn't have own property 'data'
+    Car.prototype.hasOwnProperty('data'); // 'data' property is created in prototype.
+
+    var ferrari=Object.create(car);
+    console.log(Object.getPrototypeOf(ferrari)); //Car {}
+
+    </script>
+    </head>
+    <body><h3>See console for output</h3></body>
+</html>

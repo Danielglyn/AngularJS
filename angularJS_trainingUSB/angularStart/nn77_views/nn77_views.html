@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<!-- adapt this example to use route parameters-->
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Routing</title>
+    <!-- for html5 mode we must specify the base url -->
+    
+</head>
+
+<body>
+    <!-- using hashbang (default) -->
+    <ul class="menu">
+        <li>
+            <a href="#/view1">view 1</a>
+            <a href="#/view2">view 2</a>
+        </li>
+    </ul>
+    
+   
+    <ng-view></ng-view>
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+    <script src="../libs/angular/angular-route.1.4.0.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+</body>
+
+</html>

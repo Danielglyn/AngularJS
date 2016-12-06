@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+<title>AngularJS Form Validation</title>
+<!--    <script src="libs/angular.js"></script> -->
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+    <script>
+        angular.module('myApp', []).controller('UserController', function($scope) {
+            $scope.user = {};
+            $scope.saveUser = function() {
+                if($scope.myform.$valid){
+                    console.log('saving user'); // save $scope.user object (e.g. use a service)
+                }
+                else{
+                    console.log('Unable to save. Validation error');
+                }
+            }
+        });
+    </script>
+    <style>
+        .error-message {
+            color: red;
+        }
+        input.ng-dirty.ng-invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body ng-controller="UserController">
+    <!-- novalidate turns off the default html validation -->
+    <form name="myform" novalidate ng-submit="saveUser()">
+        First Name:
+        <input 
+               type="text" 
+               name="firstname" 
+               ng-model="user.firstname" 
+               ng-required="true" 
+               ng-minlength="2" 
+               ng-model-options="{updateOn: blur', debounce:100}" /><!-- wait 100 milliseconds before validating-->
+        <span 
+              class="error-message" 
+              ng-show="myform.firstname.$dirty && myform.firstname.$error.required">
+            The First Name is Mandatory
+        </span>
+        <span 
+              class="error-message" 
+              ng-show="myform.firstname.$dirty && myform.firstname.$error.minlength">
+            The First Name should be minimum 2 characters
+        </span>
+        <br/>
+        Last Name:
+        <input 
+               type="text" 
+               name="lastname" 
+               ng-model="user.lastname" 
+               ng-required="true" 
+               ng-minlength="2" />
+        <span 
+              class="error-message" 
+              ng-show="myform.lastname.$dirty  && myform.lastname.$error.required">
+            The Last Name is Mandatory
+        </span>
+        <span 
+              class="error-message" 
+              ng-show="myform.lastname.$dirty&& myform.lastname.$error.minlength">
+            The Last Name should be minimum 2 characters
+        </span>
+        <br/>
+        Phone:
+        <input 
+               type="text" 
+               name="phoneNumber" 
+               ng-model="user.phoneNumber" 
+               ng-maxlength="10" 
+               ng-minlength="10" 
+               ng-pattern="/^\d{10}$/" />
+        <span 
+              class="error-message" 
+              ng-show="myform.phoneNumber.$dirty && myform.phoneNumber.$invalid">
+            The phone number field should be of 10 digits
+        </span>
+        <br/>
+        <input 
+               type="submit" 
+               value="Save"/>
+    </form>
+</body>
+</html>

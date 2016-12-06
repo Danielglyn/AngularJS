@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title>Simple Data-Bound Shopping Cart</title>
+        <meta name="viewport" content="width=device-width"/>
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+    </head>
+    <body ng-controller="CartController">
+        <h2>your Shopping Cart</h2>
+        <div id='{{item.title}}' ng-repeat="item in items">
+            <span>Title: {{item.title}} </span>
+            <input ng-model="item.quantity">
+            <span>Price: {{item.price | currency:'€'}}</span>
+            <span>Total: {{item.price * item.quantity | currency:'€'}}</span>
+            <button ng-click="remove($index)">Remove</button>
+        </div>
+    </body>
+<script>
+    // here is our controller
+    function CartController($scope){
+        $scope.items = [
+            {title:'Paint Pots', quantity: 8  , price:3.95 },
+            {title:'Polka dots', quantity: 17 , price:12.95},
+            {title:'Pebbles'   , quantity: 5  , price:6.95 },
+            {title:'Hair Brush', quantity: 3  , price:12.95},
+            {title:'Cal Pen'   , quantity: 4  , price:9.38 }
+        ];
+        $scope.remove = function(index){
+            $scope.items.splice(index, 1);
+        };
+    }
+</script>        
+</html>

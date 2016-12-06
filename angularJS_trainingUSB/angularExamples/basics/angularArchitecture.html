@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!-- this file is angularArchitecture.html -->
+<html ng-app="myApp">
+<head>
+<script src="../libs/angular/angular.1.4.0.js"></script>   
+<script src="js/app1.js"></script>
+<script src="js/controller1.js"></script>
+<script>
+</script>
+</head>
+<body ng-controller="GreetingController">
+<h2>{{greeting}} User - the time is {{now}}</h2> 
+<br/>
+<button ng-click="getRandomGreeting()">Random Message</button>
+</body>
+</html>

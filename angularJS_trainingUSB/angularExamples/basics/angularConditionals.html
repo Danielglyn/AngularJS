@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='tempApp'>
+    <head>
+        <title>Responsing to Conditional Expressions</title>
+        <meta name="viewport" content="width=device-width"/>
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+    </head>
+    <body>
+    <ul id="menu">
+        <li><a href="#/current">Current</a></li>
+        <li><a href="#/history">Historical</a></li>
+    </ul>
+    <div ng-view>
+        <!-- routed content appears here -->
+    </div>
+    </body>
+</html>
+<script>
+var tempApp = angular.module('tempApp', []).config(
+    ['$routeProvider', function($routeProvider){
+        $routeProvider.when('/current', {templateUrl:'partials/currentTemp.html'});
+        $routeProvider.when('/history', {templateUrl:'partials/historyTemp.html'});
+        $routeProvider.otherwise({redirectTo: '/current'});
+    }]);
+// controllers
+    tempApp.controller('CurrentCtrl', ['$scope', function($scope){
+          $scope.temp=13; 
+    }]);
+    tempApp.controller('HistoryCtrl', ['$scope', function($scope){
+        // do something wildly exiting here....
+    }]);
+</script>

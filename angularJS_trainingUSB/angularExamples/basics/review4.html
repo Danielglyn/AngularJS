@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app='photoApp'>
+<head>
+    <title>Using AngularJS Templating</title>
+</head>
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+<style>img {float:left;width:18%;}</style>
+<body ng-controller="PhotoListCtrl">
+    <!-- static HTML template -->
+        <!-- dynamic Angular template -->
+        <span ng-repeat="photo in photos">
+           <img ng-src='../data/gallery/{{photo.filename}}.jpg' title='{{photo.desc}}' ng-click="remove($index)" />
+        </span>
+    </ul>
+</body>
+    <script src="js/photoController.js"></script>
+
+</html>

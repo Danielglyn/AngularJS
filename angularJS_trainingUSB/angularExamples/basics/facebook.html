@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app>
+
+    <body ng-init="fbID='timbernerslee'">
+        <input placeholder="type a facebook name" ng-model="fbID"/>
+        <hr/>
+        <img ng-src="https://graph.facebook.com/{{fbID}}/picture?type=normal" />
+        
+        <script src="../libs/angular/angular.1.4.0.js"></script>
+        
+    </body>
+    
+</html>

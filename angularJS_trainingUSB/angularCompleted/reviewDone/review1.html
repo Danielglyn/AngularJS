@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang='en' ng-app="myApp">
+<head>
+    <title>Shopping Cart</title>
+    <script src="../libs/angular.js"></script>
+</head>
+<body ng-controller="ShoppingController">
+    <h1>Welcome to our Shop</h1>
+    <table>
+        <tr ng-repeat="item in items">
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price | currency:'€'}}</td>
+            <td><button ng-click="buy($index)">Buy</button></td>
+        </tr>
+    </table>
+    <h3>Your Shopping Cart</h3>
+    {{cart}}
+<script src="app.js"></script>
+<script src="controllers.js"></script>
+</body>
+
+</html>

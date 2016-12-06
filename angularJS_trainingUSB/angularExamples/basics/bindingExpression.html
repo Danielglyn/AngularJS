@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>Using AngularJS Binding Expressions</title>
+<script src="../libs/angular/angular.1.4.0.js"></script>
+<script>
+// declare a controller    
+    function HelloController($scope, $location){
+     $scope.greeting = { text: 'Hello'}; // model  
+     console.log($location);
+    }
+</script>
+</head>
+<body>
+    <h2 contenteditable="true">Model view Controller with AngularJS</h2>
+    <div ng-controller='HelloController'>
+        <input ng-model = 'greeting.text'>
+        <!-- view using binding directives -->
+        <p>{{greeting.text}} world</p>
+    </div>
+    
+    
+    <p>1 plus 2 = {{1+2}}</p>
+<p ng-non-bindable>{{1+2}}</p>
+</body>
+</html>

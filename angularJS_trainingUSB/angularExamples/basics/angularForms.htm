@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Simple Form with Angular Model Bindings</title>
+</head>
+<body ng-controller="UserController">
+    <form name="myform">
+        <!-- text input -->
+        <br>
+        <input 
+               type="text" 
+               name="firstname" 
+               ng-model="user.firstname" />
+        <!-- text area -->
+        <textarea 
+                  name="bio" 
+                  ng-model="user.bio"></textarea>
+        <!-- dynamic SELECT -->
+        <br>
+        <select 
+                name="country" 
+                ng-model="user.country" 
+                ng-options="country.id as country.desc for country in countries" 
+                multiple>
+            <option value="">
+                Please select
+            </option>
+        </select>
+        <!-- radio buttons -->
+        <br> Preferred beverage:
+        <input 
+               type="radio" 
+               ng-model="user.choice" 
+               value="Wine" /> Wine
+        <input 
+               type="radio" 
+               ng-model="user.choice" 
+               value="Beer" /> Beer
+        <!-- check boxes -->
+        Do you drink coffee
+        <input 
+               type="checkbox" 
+               ng-model="user.coffee" 
+               ng-true-value="yes" 
+               ng-false-value="no" />Coffee
+    </form>
+
+    <!-- views -->
+    <span>
+        Name: {{user.firstname}} biography: {{user.bio}}
+    </span>
+    <div>
+        Selected Country: {{user.country}}
+    </div>
+    <div>
+        Beverage: {{user.choice}}
+    </div>
+    <div>
+        Coffee Drinker: {{user.coffee}}
+    </div>
+    <!-- scripts -->
+    <script src="libs/angular.min.js"></script>
+    <script type="text/javascript">
+       var app = angular.module('myApp', []);
+           app.controller('UserController', function ($scope) {
+            $scope.user = {};
+            $scope.countries = [{
+                                    id: 'EI',
+                                    desc: 'Ireland'
+                                }, {
+                                    id: 'GB',
+                                    desc: 'United Kingdom'
+                                }, {
+                                    id: 'AU',
+                                    desc: 'Australia'
+                                }];
+        });
+    </script>
+</body>
+</html>

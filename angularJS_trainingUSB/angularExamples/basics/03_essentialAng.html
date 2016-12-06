@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- ng-oreilly p13 -->
+<html>
+
+<head>
+    <title>Essential AngularJS</title>
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+    <script>
+    //    function TextController1($scope) {
+    //       $scope.someText = 'AngularJS - all or nothing'; // model in global scope
+    //    }
+    //
+        var myAppModule = angular.module('myApp', []);
+        myAppModule.controller('TextController2',
+            function ($scope) {
+                var someText = {};
+                someText.message = 'Best suited to modular development.';
+                $scope.someText = someText;
+            });
+    </script>
+</head>
+<body>
+    <div ng-app='myApp'>
+        <p ng-controller='TextController2'>{{someText.message}}</p>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app>
+<!-- ng-p8 -->
+<head>
+    <title>AngularJS App with a Controller</title>
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+
+    <script src="js/usingController.js"></script>
+</head>
+
+<body ng-controller="TempCtrl">
+    Current temperature:
+    <input ng-model='temp' type='number' />Celsius
+    <p ng-show="temp>=12">Not too bad! {{ temp }} degrees, {{ temp - 10 }} would be cooler</p>
+    <p ng-show="temp<12">{{ temp }} degrees, is a little chilly, {{ temp + 10 }} would be warmer</p>
+</body>
+
+</html>

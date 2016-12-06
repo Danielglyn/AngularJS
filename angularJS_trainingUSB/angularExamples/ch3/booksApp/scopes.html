@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="utf-8" />
+        <title ng-bind="title"></title>
+    </head>
+    <body ng-controller="SiteController">
+        <h3>View Console (and enable Angular Batarang in Chrome)</h3>
+        <span>{{publisher}} excels in {{type}} books</span>
+        <div ng-controller="BookController">
+           <!-- My Wish List Count: {{wishListCount}}-->
+            <ul>
+                <li ng-repeat="book in books">
+                    {{book}}. <!--<a href="#" ng-click="addToWishList(book)">Add to Wish List</a>-->
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+</html>

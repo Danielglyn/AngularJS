@@ -1,0 +1,16 @@
+<!doctype html>
+<html data-ng-app>
+<!-- ng-p6 -->
+<head>
+    <title>My AngularJS App</title>
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+</head>
+
+<body>
+    Current temperature:
+    <input data-ng-model='temp' type='number' />Celsius
+    <p data-ng-show="temp>=12">Not too bad! {{ temp }} degrees, {{ temp - 10 }} would be cooler</p>
+    <p data-ng-show="temp<12">{{ temp }} degrees, is a little chilly, {{ temp + 10 }} would be warmer</p>
+</body>
+
+</html>

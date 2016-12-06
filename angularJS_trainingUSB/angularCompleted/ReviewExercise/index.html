@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS Weather App</title>
+    <script src="../libs/angular/angular.1.4.0.js"></script>
+    <script src="app/js/app.js"></script>
+    <script src="app/js/controllers/controllers.js"></script>
+    <script src="app/js/services/factory.js"></script>
+</head>
+
+<body ng-controller="WeatherController">
+    Search :
+    <input type="text" ng-model="city" placeholder="Enter search term" value="Paris" />
+    <button ng-click="getWeather()">Get Weather</button>
+    <br/>
+    <br/>
+    <b>Weather Condition:</b>  <span>{{weatherDescription}}</span>
+</body>
+
+</html>
